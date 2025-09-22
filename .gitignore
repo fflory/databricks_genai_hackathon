@@ -3,3 +3,8 @@ mlruns/*
 .vscode
 .conda
 .venv
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
