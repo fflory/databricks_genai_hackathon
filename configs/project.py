@@ -52,8 +52,17 @@ class Environment(InputModel, VectorSearchModel):
     secret_scope: str
     genie_space_id: str
     llm_endpoint_names: list[str]
-    mlflow_experiment_base_path: str
+    mlflow_experiment_base_path: Optional[str] = None
     mlflow_experiment_name: str
+
+    @model_validator(mode="after")
+    def impute_mlflow_experiment_path(cls, model: "Environment") -> "Environment":
+        if model.mlflow_experiment_base_path is None:
+            from databricks.sdk import WorkspaceClient
+            w = WorkspaceClient()
+            target_dir = f"/Users/{w.current_user.me().user_name}/mlflow_experiments"
+            model.mlflow_experiment_base_path = target_dir
+        return model
 
 class ProjectConfig(Environment):
 
