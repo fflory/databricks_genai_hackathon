@@ -1,4 +1,4 @@
-uc_catalog: felixflory
+uc_catalog: ds_treaties_model_catalog
 uc_schema: databricks_genai_hackathon
 raw_data_volume: raw_data
 vector_search_endpoint_name: one-env-shared-endpoint-1
