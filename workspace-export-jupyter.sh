@@ -4,10 +4,11 @@
 
 export DATABRICKS_CONFIG_PROFILE=sdlc
 
-export WORKSPACEPATH="/Workspace/Users/felix.flory@rgare.com/repos/databricks_genai_hackathon/setup_env/workspace_assets"
+export WORKSPACEPATH="/Workspace/Users/felix.flory@rgare.com/.bundle/databricks_genai_hackathon/dev/files/notebooks/06-langgraph-multiagent-genie-pat-vs"
 
 export FILENAME=$(basename "$WORKSPACEPATH")
-export LOCALFILE="$PWD/setup_env/$FILENAME.ipynb"
+# /Users/s0054120/code-byo/databricks_genai_hackathon/notebooks/05_RAG_Genie_agent.ipynb
+export LOCALFILE="$PWD/notebooks/$FILENAME.ipynb"
 
 # cd to the local directory where the file should be saved
 databricks workspace export "$WORKSPACEPATH" \

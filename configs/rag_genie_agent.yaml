@@ -1,24 +1,24 @@
 databricks_resources:
   model_name: rag_genie_agent
   mlflow_experiment_name: databricks_genai_hackathon_rag_genie_agent
-  llm_endpoint_name: "ASK-BEFORE-USE-fflory-gpt-4o"
+  llm_endpoint_name: "databricks-claude-sonnet-4"
   secret_scope_name: "felix-flory"
   secret_key_name: DBPAT
 
 genie_agent_config:
-  genie_space_id: 01f00c360aa7147aa93f081d65b4c8e5
+  genie_space_id: "01f098d550c5118ab93a29fcf099a33f"
   genie_agent_description: "This agent can answer questions about SEC fillings."
 
 
 retriever_config:
-  vector_search_index: "felixflory.databricks_genai_hackathon.sec_rag_docs_pages_index"
+  vector_search_index: "ds_treaties_model_catalog.databricks_genai_hackathon.sec_rag_docs_pages_index"
   tool_description: "Retrieves information about company earning reports from SEC documents."
   parameters:
       num_results: 2
       query_type: ANN
 
 multi_agent_config:
-  llm_endpoint_name: ASK-BEFORE-USE-fflory-gpt-4o
+  llm_endpoint_name: "databricks-claude-sonnet-4"
   llm_parameters:
     max_tokens: 1500
     temperature: 0.01

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository offers complete examples of implementing GenAI agents on Databricks. It leverages the Databricks Agent Framework, integrates with [Langchain/Langgraph](https://blog.langchain.dev/langgraph-multi-agent-workflows/), and supports Vector Search, Unity Catalog Functions, and [Genie](https://www.databricks.com/product/ai-bi/genie) — a state-of-the-art text-to-SQL tool developed by Databricks.
+This repository offers complete examples of implementing [GenAI agents](https://docs.databricks.com/aws/en/generative-ai/agent-framework/multi-agent-genie) on Databricks. It leverages the Databricks Agent Framework, integrates with [Langchain/Langgraph](https://blog.langchain.dev/langgraph-multi-agent-workflows/), and supports Vector Search, Unity Catalog Functions, and [Genie](https://www.databricks.com/product/ai-bi/genie) — a state-of-the-art text-to-SQL tool developed by Databricks.
 
 The agents are deployed using Databricks Model Serving and are monitored through Databricks Model Monitoring. The repository includes small datasets featuring preprocessed text chunks from publicly available SEC filings, mock structured data for select companies, and an evaluation set of question/answer pairs sourced from the FinanceBench repository. This evaluation data is used for both offline and online performance assessment.
 
@@ -54,6 +54,7 @@ After the project is configured and the datatables created you can work through 
   2. Wrap the LangGraph agent with MLflow `ChatAgent` to ensure compatibility with Databricks features.
   3. Manually test the multi-agent system's output.
   4. Log and deploy the multi-agent system.
+- [langgraph-multiagent-genie-pat](notebooks/langgraph-multiagent-genie-pat.ipynb) is the newest version for the docs, see [GenAI agents](https://docs.databricks.com/aws/en/generative-ai/agent-framework/multi-agent-genie). the agent works with the Genie Space.
 
 ## Disclaimer
 
