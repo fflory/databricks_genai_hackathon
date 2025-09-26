@@ -1,0 +1,20 @@
+{
+  "data_security_mode": "DATA_SECURITY_MODE_AUTO",
+  "cluster_name": "Felix Flory 16.4 single xl",
+  "kind": "CLASSIC_PREVIEW",
+  "aws_attributes": {
+    "zone_id": "auto"
+  },
+  "runtime_engine": "STANDARD",
+  "spark_version": "16.4.x-scala2.12",
+  "node_type_id": "rd-fleet.xlarge",
+  "autotermination_minutes": 90,
+  "is_single_node": true,
+  "init_scripts": [
+    {
+      "volumes": {
+        "destination": "/Volumes/ds_treaties_model_catalog/databricks_genai_hackathon/init-scripts/cluster-init-script.sh"
+      }
+    }
+  ]
+}

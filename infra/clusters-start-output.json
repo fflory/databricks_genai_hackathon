@@ -1,0 +1,80 @@
+{
+  "autotermination_minutes":90,
+  "aws_attributes": {
+    "availability":"SPOT_WITH_FALLBACK",
+    "first_on_demand":1,
+    "spot_bid_price_percent":100,
+    "zone_id":"auto"
+  },
+  "cluster_cores":4,
+  "cluster_id":"0924-163225-mfd6bff7",
+  "cluster_memory_mb":32768,
+  "cluster_name":"Felix Flory 16.4 single xl",
+  "cluster_source":"UI",
+  "creator_user_name":"felix.flory@rgare.com",
+  "custom_tags": {
+    "ResourceClass":"SingleNode",
+    "project":"databricks_genai_hackathon"
+  },
+  "data_security_mode":"USER_ISOLATION",
+  "default_tags": {
+    "ClusterId":"0924-163225-mfd6bff7",
+    "ClusterName":"Felix Flory 16.4 single xl",
+    "Creator":"felix.flory@rgare.com",
+    "Environment":"model",
+    "Vendor":"Databricks",
+    "application_service":"model operations_us-east-1_sdlc",
+    "created_by":"terraform",
+    "created_for":"ops",
+    "git_org":"rgare-imas",
+    "git_repo":"modelops-rga-databricks-infra"
+  },
+  "driver": {
+    "host_private_ip":"10.24.170.222",
+    "instance_id":"i-0b425d913a55bc038",
+    "node_aws_attributes": {
+      "is_spot":false
+    },
+    "node_id":"86e2799c926f47c993d609b909ee2e16",
+    "private_ip":"10.24.170.230",
+    "start_timestamp":1758817902611
+  },
+  "driver_node_type_id":"rd-fleet.xlarge",
+  "enable_elastic_disk":false,
+  "enable_local_disk_encryption":false,
+  "is_single_node":true,
+  "jdbc_port":10000,
+  "kind":"CLASSIC_PREVIEW",
+  "last_restarted_time":1758817995290,
+  "last_state_loss_time":1758817995254,
+  "node_type_id":"rd-fleet.xlarge",
+  "num_workers":0,
+  "runtime_engine":"STANDARD",
+  "spark_conf": {
+    "spark.databricks.cluster.profile":"singleNode",
+    "spark.master":"local[*, 4]"
+  },
+  "spark_context_id":7971083562574249178,
+  "spark_version":"16.4.x-scala2.12",
+  "spec": {
+    "apply_policy_default_values":false,
+    "autotermination_minutes":90,
+    "aws_attributes": {
+      "zone_id":"auto"
+    },
+    "cluster_name":"Felix Flory 16.4 single xl",
+    "custom_tags": {
+      "project":"databricks_genai_hackathon"
+    },
+    "data_security_mode":"DATA_SECURITY_MODE_AUTO",
+    "is_single_node":true,
+    "kind":"CLASSIC_PREVIEW",
+    "node_type_id":"rd-fleet.xlarge",
+    "num_workers":0,
+    "runtime_engine":"STANDARD",
+    "spark_version":"16.4.x-scala2.12"
+  },
+  "start_time":1758731545222,
+  "state":"RUNNING",
+  "state_message":""
+}

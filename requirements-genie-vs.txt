@@ -1,0 +1,5 @@
+mlflow-skinny[databricks]
+langgraph==0.3.4
+databricks-langchain
+databricks-agents
+uv
