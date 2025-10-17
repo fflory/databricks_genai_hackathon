@@ -14,9 +14,7 @@ def add_project_root(marker_file: str = ".env"):
             if root_path not in sys.path:
                 sys.path.insert(0, root_path)
                 print(f"Added to sys.path: {root_path}")
-            return
+            return root_path
     print(f"Project root with {marker_file} not found.")
-
-    return current
 
 # add_project_root()

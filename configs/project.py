@@ -56,80 +56,80 @@ class Environment(InputModel, VectorSearchModel):
     mlflow_experiment_name: str
 
     @model_validator(mode="after")
-    def impute_mlflow_experiment_path(cls, model: "Environment") -> "Environment":
-        if model.mlflow_experiment_base_path is None:
+    def impute_mlflow_experiment_path(self) -> "Environment":
+        if self.mlflow_experiment_base_path is None:
             from databricks.sdk import WorkspaceClient
             w = WorkspaceClient()
             target_dir = f"/Users/{w.current_user.me().user_name}/mlflow_experiments"
-            model.mlflow_experiment_base_path = target_dir
-        return model
+            self.mlflow_experiment_base_path = target_dir
+        return self
 
 class ProjectConfig(Environment):
 
     vector_search_attributes: Dict[str, VectorSearchIndexAttributes]
 
     @model_validator(mode="after")
-    def impute_vector_search_attributes(cls, model: "ProjectConfig") -> "ProjectConfig":
-        for key, index in model.vector_search_attributes.items():
+    def impute_vector_search_attributes(self) -> "ProjectConfig":
+        for key, index in self.vector_search_attributes.items():
             if index.uc_catalog is None:
-                index.uc_catalog = model.uc_catalog
+                index.uc_catalog = self.uc_catalog
             if index.uc_schema is None:
-                index.uc_schema = model.uc_schema
+                index.uc_schema = self.uc_schema
             if index.raw_data_volume is None:
-                index.raw_data_volume = model.raw_data_volume
+                index.raw_data_volume = self.raw_data_volume
             if index.local_path is None:
                 index.local_path = f"/Volumes/{index.uc_catalog}/{index.uc_schema}/{index.raw_data_volume}/{index.table_name}.snappy.parquet" 
             if index.endpoint_name is None:
-                index.endpoint_name = model.vector_search_endpoint_name
+                index.endpoint_name = self.vector_search_endpoint_name
             if index.index_name is None:
-                index.index_name = f"{model.uc_catalog}.{model.uc_schema}.{index.table_name}_index"
+                index.index_name = f"{self.uc_catalog}.{self.uc_schema}.{index.table_name}_index"
             if index.source_table_name is None:
-                index.source_table_name = f"{model.uc_catalog}.{model.uc_schema}.{index.table_name}"
+                index.source_table_name = f"{self.uc_catalog}.{self.uc_schema}.{index.table_name}"
             if index.embedding_model_endpoint_name is None:
-                index.embedding_model_endpoint_name = model.embedding_model_endpoint_name
+                index.embedding_model_endpoint_name = self.embedding_model_endpoint_name
             if index.pipeline_type is None:
                 index.pipeline_type = "TRIGGERED"
-        return model
+        return self
 
     genie_tables: Dict[str, InputTableAttributes]
 
     @model_validator(mode="after")
-    def impute_genie_tables(cls, model: "ProjectConfig") -> "ProjectConfig":
-        # For each genie table, if a value is None, impute he parent's value.
-        for key, table in model.genie_tables.items():
+    def impute_genie_tables(self) -> "ProjectConfig":
+        # For each genie table, if a value is None, impute the parent's value.
+        for key, table in self.genie_tables.items():
             if table.uc_catalog is None:
-                table.uc_catalog = model.uc_catalog
+                table.uc_catalog = self.uc_catalog
             if table.uc_schema is None:
-                table.uc_schema = model.uc_schema
+                table.uc_schema = self.uc_schema
             if table.raw_data_volume is None:
-                table.raw_data_volume = model.raw_data_volume
+                table.raw_data_volume = self.raw_data_volume
             if table.table_name is None:
                 table.table_name = key
             if table.fqn is None:
                 table.fqn = f"{table.uc_catalog}.{table.uc_schema}.{table.table_name}"
             if table.local_path is None:
                 table.local_path = f"/Volumes/{table.uc_catalog}/{table.uc_schema}/{table.raw_data_volume}/{table.table_name}.snappy.parquet" 
-        return model
+        return self
 
     eval_tables: Dict[str, InputTableAttributes]
 
     @model_validator(mode="after")
-    def impute_eval_tables(cls, model: "ProjectConfig") -> "ProjectConfig":
-        # For each eval table, if a value is None, impute he parent's value.
-        for key, table in model.eval_tables.items():
+    def impute_eval_tables(self) -> "ProjectConfig":
+        # For each eval table, if a value is None, impute the parent's value.
+        for key, table in self.eval_tables.items():
             if table.uc_catalog is None:
-                table.uc_catalog = model.uc_catalog
+                table.uc_catalog = self.uc_catalog
             if table.uc_schema is None:
-                table.uc_schema = model.uc_schema
+                table.uc_schema = self.uc_schema
             if table.raw_data_volume is None:
-                table.raw_data_volume = model.raw_data_volume
+                table.raw_data_volume = self.raw_data_volume
             if table.table_name is None:
                 table.table_name = key
             if table.fqn is None:
                 table.fqn = f"{table.uc_catalog}.{table.uc_schema}.{table.table_name}"
             if table.local_path is None:
                 table.local_path = f"/Volumes/{table.uc_catalog}/{table.uc_schema}/{table.raw_data_volume}/{table.table_name}.snappy.parquet"
-        return model
+        return self
 
 def get_project_root_path(indicator_variable='PROJECT_ROOT_INDICATOR', start_path=None):
     if start_path is None:

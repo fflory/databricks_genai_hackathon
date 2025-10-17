@@ -5,7 +5,7 @@ vector_search_endpoint_name: "vs_felix_flory"
 embedding_model_endpoint_name: "databricks-bge-large-en"
 secret_scope: "felix-flory"
 genie_space_id: "01f00c360aa7147aa93f081d65b4c8e5"
-mlflow_experiment_base_path: "Users/felix.flory@databricks.com/mlflow_experiments"
+mlflow_experiment_base_path: "Users/felix.flory@rgare.com/mlflow_experiments"
 mlflow_experiment_name: "databricks_genai_hackathon"
 
 llm_endpoint_names: 
