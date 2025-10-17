@@ -17,4 +17,6 @@ def add_project_root(marker_file: str = ".env"):
             return
     print(f"Project root with {marker_file} not found.")
 
+    return current
+
 # add_project_root()
