@@ -18,6 +18,24 @@ On Databricks, use either a serverless cluster or a standard cluster running Run
 
 If you’re using a standard Databricks Runtime, please [install](https://docs.databricks.com/aws/en/libraries/cluster-libraries) the required libraries listed in the [requirements.txt](requirements.txt) file. In this case, you can omit the `pip install ...` commands at the beginning of the notebooks.
 
+the following configuration has been tested:
+
+```json
+{
+    "cluster_name": "Dev-Cluster",
+    "spark_version": "17.1.x-scala2.13",
+    "aws_attributes": {
+        "zone_id": "auto"
+    },
+    "node_type_id": "rd-fleet.xlarge",
+    "autotermination_minutes": 30,
+    "data_security_mode": "DATA_SECURITY_MODE_AUTO",
+    "runtime_engine": "STANDARD",
+    "kind": "CLASSIC_PREVIEW",
+    "is_single_node": true
+}
+```
+
 If you’re using Serverless compute, please uncomment and run the `pip install ...` commands in each notebook to install the necessary libraries.
 
 ## For admins

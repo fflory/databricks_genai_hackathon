@@ -152,6 +152,8 @@ def get_project_root_path(indicator_variable='PROJECT_ROOT_INDICATOR', start_pat
 
         current_path = new_path
 
+    return current_path
+
 def get_project_config(project_yml_path = None, indicator_variable='PROJECT_ROOT_INDICATOR', start_path=None):
     project_root_path = get_project_root_path(indicator_variable, start_path)
     if project_yml_path is None:
