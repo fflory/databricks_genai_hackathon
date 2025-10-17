@@ -167,8 +167,21 @@ def get_project_config(project_yml_path = None, indicator_variable='PROJECT_ROOT
 
 
 if __name__ == "__main__":
-    from configs.project import get_project_config
+    project_root_path = get_project_root_path(indicator_variable='PROJECT_ROOT_INDICATOR', start_path=None)
+    project_yml_path = os.path.join(project_root_path, "configs", "project.yml")
+    if project_yml_path is None:
+        project_yml_path = os.path.join(project_root_path, "configs", "project.yml")
+    if not os.path.exists(project_yml_path):
+        raise FileNotFoundError(f"Project configuration file not found at {project_yml_path}")
 
-    
+    with open(project_yml_path, "r") as file:
+        data = yaml.safe_load(file)
+
+    # print("data:", data)
+    # print(VectorSearchIndexAttributes(**data['vector_search_attributes']['id_1']).model_dump())
+    # print(InputTableAttributes(**data['genie_tables']["id_1"]).model_dump())
+    # print(Environment(**data).model_dump())
+    # print(ProjectConfig(**data).model_dump())
+
     projectConfig = get_project_config()
     print(projectConfig.model_dump())

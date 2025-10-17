@@ -1,12 +1,12 @@
-uc_catalog: ds_treaties_model_catalog
-uc_schema: databricks_genai_hackathon
-raw_data_volume: raw_data
-vector_search_endpoint_name: vs_felix_flory
-embedding_model_endpoint_name: databricks-bge-large-en
-secret_scope: felix-flory
-genie_space_id: 01f00c360aa7147aa93f081d65b4c8e5
-# mlflow_experiment_base_path: 'Users/felix.flory@databricks.com/mlflow_experiments'
-mlflow_experiment_name: databricks_genai_hackathon
+uc_catalog: "ds_treaties_model_catalog"
+uc_schema: "databricks_genai_hackathon"
+raw_data_volume: "raw_data"
+vector_search_endpoint_name: "vs_felix_flory"
+embedding_model_endpoint_name: "databricks-bge-large-en"
+secret_scope: "felix-flory"
+genie_space_id: "01f00c360aa7147aa93f081d65b4c8e5"
+mlflow_experiment_base_path: "Users/felix.flory@databricks.com/mlflow_experiments"
+mlflow_experiment_name: "databricks_genai_hackathon"
 
 llm_endpoint_names: 
   # - databricks-meta-llama-3-3-70b-instruct
@@ -14,7 +14,7 @@ llm_endpoint_names:
   # - databricks-claude-3-7-sonnet
   # - ASK-BEFORE-USE-fflory-gpt-4o
   # - ASK-BEFORE-USE-fflory-claude-3-7
-  - databricks-claude-3-7-sonnet
+  - "databricks-claude-3-7-sonnet"
 
 vector_search_attributes:
   id_1: # use the table name (not fully qualified) and the optional values will be imputed and validated
